@@ -22,7 +22,7 @@ const FeaturedProjectItem = (props) => {
         <div className={classes.row}>
           <div className={classes.columnRight}>
             <Link href={`/projects/${project.slug}`}>
-              <a>
+             
                 <div className={classes.card}>
                   <Image
                     src={`/portfolio/images/projects/${project.image}`}
@@ -31,7 +31,7 @@ const FeaturedProjectItem = (props) => {
                     alt={project.title}
                   />
                 </div>
-              </a>
+              
             </Link>
           </div>
 

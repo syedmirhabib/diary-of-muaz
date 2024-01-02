@@ -15,31 +15,28 @@ const ProjectItem = (props) => {
       className={classes.card}
     >
       <Link href={`/projects/${project.slug}`}>
-        <a>
-          <div className={classes.cardContent}>
-            <h4>{project.title}</h4>
-            <small className="mb-10 d-block">
-              {Array.isArray(project.tech)
-                ? project.tech.join(", ")
-                : project.tech}
-            </small>
-
-            {project.image ? (
-              <div className={classes.image}>
-                <Image
-                  src={`../../portfolio/images/projects/${project.image}`}
-                  width={320}
-                  height={220}
-                  alt=""
-                />
-              </div>
-            ) : (
-              <div className={classes.placeholderContainer}>
-                <div className={classes.placeholder}>.</div>
-              </div>
-            )}
-          </div>
-        </a>
+        <div className={classes.cardContent}>
+          <h4>{project.title}</h4>
+          <small className="mb-10 d-block">
+            {Array.isArray(project.tech)
+              ? project.tech.join(", ")
+              : project.tech}
+          </small>
+          {project.image ? (
+            <div className={classes.image}>
+              <Image
+                src={`/portfolio/images/projects/${project.image}`}
+                width={320}
+                height={220}
+                alt=""
+              />
+            </div>
+          ) : (
+            <div className={classes.placeholderContainer}>
+              <div className={classes.placeholder}>.</div>
+            </div>
+          )}
+        </div>
       </Link>
 
       <p>{project.description}</p>
