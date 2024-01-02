@@ -52,10 +52,10 @@ const FeaturedProjectItem = (props) => {
                 </a>
               )}
               <Link href={`/projects/${project.slug}`}>
-                <a>
+                <div>
                   <i className="fa fa-circle-info"></i>
                   Project details
-                </a>
+                </div>
               </Link>
             </div>
           </div>

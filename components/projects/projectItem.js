@@ -55,10 +55,10 @@ const ProjectItem = (props) => {
           </a>
         )}
         <Link href={`/projects/${project.slug}`}>
-          <a>
+          <div>
             <i className="fa fa-circle-info"></i>
-            Details
-          </a>
+            Project details
+          </div>
         </Link>
       </div>
     </motion.div>
