@@ -53,7 +53,7 @@ const ProjectContent = (props) => {
   return (
     <div className={classes.projectDetail}>
       <div className="container section mvh-100 projectDetail">
-        <Link href="/projects/">
+        <Link href="/projects/" legacyBehavior>
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}

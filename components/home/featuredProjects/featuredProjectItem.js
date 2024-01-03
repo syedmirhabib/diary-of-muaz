@@ -5,63 +5,61 @@ import Link from "next/link";
 const FeaturedProjectItem = (props) => {
   const { project } = props;
 
-  return (
-    <>
-      <div className={classes.project}>
-        <div className={classes.titleContainer}>
-          <div className={classes.title}>
-            <h3>{project.title}</h3>
-            <small>
-              {Array.isArray(project.tech)
-                ? project.tech.join(", ")
-                : project.tech}
-            </small>
-          </div>
+  return <>
+    <div className={classes.project}>
+      <div className={classes.titleContainer}>
+        <div className={classes.title}>
+          <h3>{project.title}</h3>
+          <small>
+            {Array.isArray(project.tech)
+              ? project.tech.join(", ")
+              : project.tech}
+          </small>
+        </div>
+      </div>
+
+      <div className={classes.row}>
+        <div className={classes.columnRight}>
+          <Link href={`/projects/${project.slug}`} legacyBehavior>
+           
+              <div className={classes.card}>
+                <Image
+                  src={`/portfolio/images/projects/${project.image}`}
+                  width={600}
+                  height={460}
+                  alt={project.title}
+                />
+              </div>
+            
+          </Link>
         </div>
 
-        <div className={classes.row}>
-          <div className={classes.columnRight}>
-            <Link href={`/projects/${project.slug}`}>
-             
-                <div className={classes.card}>
-                  <Image
-                    src={`/portfolio/images/projects/${project.image}`}
-                    width={600}
-                    height={460}
-                    alt={project.title}
-                  />
-                </div>
-              
+        <div className={classes.columnLeft}>
+          <p className={classes.description}>{project.description}</p>
+
+          <div className={classes.projectLinks}>
+            {project.githubLink && (
+              <a href={project.githubLink} target="_blank" rel="noreferrer">
+                <i className="fab fa-facebook"></i>
+                Facebook
+              </a>
+            )}
+            {project.liveLink && (
+              <a href={project.liveLink} target="_blank" rel="noreferrer">
+                <i className="fas fa-link"></i>
+                Website
+              </a>
+            )}
+            <Link href={`/projects/${project.slug}`} legacyBehavior>
+              <div>
+                <i className="fa fa-circle-info"></i>
+                Project details
+              </div>
             </Link>
-          </div>
-
-          <div className={classes.columnLeft}>
-            <p className={classes.description}>{project.description}</p>
-
-            <div className={classes.projectLinks}>
-              {project.githubLink && (
-                <a href={project.githubLink} target="_blank" rel="noreferrer">
-                  <i className="fab fa-facebook"></i>
-                  Facebook
-                </a>
-              )}
-              {project.liveLink && (
-                <a href={project.liveLink} target="_blank" rel="noreferrer">
-                  <i className="fas fa-link"></i>
-                  Website
-                </a>
-              )}
-              <Link href={`/projects/${project.slug}`}>
-                <div>
-                  <i className="fa fa-circle-info"></i>
-                  Project details
-                </div>
-              </Link>
-            </div>
           </div>
         </div>
       </div>
-    </>
-  );
+    </div>
+  </>;
 };
 export default FeaturedProjectItem;

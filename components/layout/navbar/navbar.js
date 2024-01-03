@@ -44,109 +44,107 @@ const Navbar = (props) => {
     window.onscroll = fixNavbar;
   }, []);
 
-  return (
-    <>
-      <div
-        className={
-          sticky ? `${classes.navbar}  ${classes.sticky}` : `${classes.navbar} `
-        }
-      >
-        <div className={classes.container}>
-          <Link href="/">
-            <a className={classes.logo}></a>
-          </Link>
+  return <>
+    <div
+      className={
+        sticky ? `${classes.navbar}  ${classes.sticky}` : `${classes.navbar} `
+      }
+    >
+      <div className={classes.container}>
+        <Link href="/" className={classes.logo}>
 
-          <nav
-            className={
-              isOpen
-                ? `${classes.navMenu} ${classes.responsive}`
-                : `${classes.navMenu}`
-            }
-            id="navMenu"
-          >
-            <div className={classes.linkWrapper}>
-              <Link href="/projects">
-                <motion.a
-                  style={{ cursor: "pointer" }}
-                  initial={{ opacity: 0, y: -30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  onClick={toggleNav}
-                >
-                  Running Events
-                </motion.a>
-              </Link>
+        </Link>
 
-              <Link href="/posts">
-                <motion.a
-                  style={{ cursor: "pointer" }}
-                  initial={{ opacity: 0, y: -30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  onClick={toggleNav}
-                >
-                  Blog
-                </motion.a>
-              </Link>
+        <nav
+          className={
+            isOpen
+              ? `${classes.navMenu} ${classes.responsive}`
+              : `${classes.navMenu}`
+          }
+          id="navMenu"
+        >
+          <div className={classes.linkWrapper}>
+            <Link href="/projects" legacyBehavior>
+              <motion.a
+                style={{ cursor: "pointer" }}
+                initial={{ opacity: 0, y: -30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                onClick={toggleNav}
+              >
+                Running Events
+              </motion.a>
+            </Link>
 
-              <Link href="/#about">
-                <motion.a
-                  style={{ cursor: "pointer" }}
-                  initial={{ opacity: 0, y: -30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7 }}
-                  onClick={toggleNav}
-                >
-                  About me
-                </motion.a>
-              </Link>
-            </div>
-          </nav>
+            <Link href="/posts" legacyBehavior>
+              <motion.a
+                style={{ cursor: "pointer" }}
+                initial={{ opacity: 0, y: -30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                onClick={toggleNav}
+              >
+                Blog
+              </motion.a>
+            </Link>
 
-          <div className={classes.navContainer}>
-            <motion.button
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className={classes.icon}
-              onClick={() => {
-                toggleModal();
-              }}
-            >
-              {showModal ? (
-                <i className="fa fa-envelope-open"></i>
-              ) : (
-                <i className="fa fa-envelope"></i>
-              )}
-            </motion.button>
-
-            <motion.button
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className={classes.icon}
-              onClick={() => {
-                setThemeHandler();
-              }}
-            >
-              <ThemeToggle theme={theme} />
-            </motion.button>
-
-            <motion.div
-              className={classes.iconMain}
-              initial={false}
-              animate={isOpen ? "open" : "closed"}
-            >
-              <MenuToggle toggleNav={toggleNav} />
-            </motion.div>
+            <Link href="/#about" legacyBehavior>
+              <motion.a
+                style={{ cursor: "pointer" }}
+                initial={{ opacity: 0, y: -30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7 }}
+                onClick={toggleNav}
+              >
+                About me
+              </motion.a>
+            </Link>
           </div>
+        </nav>
+
+        <div className={classes.navContainer}>
+          <motion.button
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className={classes.icon}
+            onClick={() => {
+              toggleModal();
+            }}
+          >
+            {showModal ? (
+              <i className="fa fa-envelope-open"></i>
+            ) : (
+              <i className="fa fa-envelope"></i>
+            )}
+          </motion.button>
+
+          <motion.button
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className={classes.icon}
+            onClick={() => {
+              setThemeHandler();
+            }}
+          >
+            <ThemeToggle theme={theme} />
+          </motion.button>
+
+          <motion.div
+            className={classes.iconMain}
+            initial={false}
+            animate={isOpen ? "open" : "closed"}
+          >
+            <MenuToggle toggleNav={toggleNav} />
+          </motion.div>
         </div>
       </div>
-      <AnimatePresence>
-        {showModal && <Modal contact onClose={toggleModal} />}
-      </AnimatePresence>
-      <main>{props.children}</main>
-    </>
-  );
+    </div>
+    <AnimatePresence>
+      {showModal && <Modal contact onClose={toggleModal} />}
+    </AnimatePresence>
+    <main>{props.children}</main>
+  </>;
 };
 export default Navbar;

@@ -48,7 +48,7 @@ const FeaturedProjects = (props) => {
         </div>
 
         <div className={classes.buttonWrapper}>
-          <Link href="/projects/">
+          <Link href="/projects/" legacyBehavior>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

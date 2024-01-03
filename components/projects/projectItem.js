@@ -14,7 +14,7 @@ const ProjectItem = (props) => {
       layout
       className={classes.card}
     >
-      <Link href={`/projects/${project.slug}`}>
+      <Link href={`/projects/${project.slug}`} legacyBehavior>
         <div className={classes.cardContent}>
           <h4>{project.title}</h4>
           <small className="mb-10 d-block">
@@ -54,7 +54,7 @@ const ProjectItem = (props) => {
             Website
           </a>
         )}
-        <Link href={`/projects/${project.slug}`}>
+        <Link href={`/projects/${project.slug}`} legacyBehavior>
           <div>
             <i className="fa fa-circle-info"></i>
             Project details

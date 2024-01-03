@@ -27,7 +27,7 @@ const FeaturedPosts = (props) => {
         </div>
 
         <div data-aos='fade-up' className={classes.buttonWrapper}>
-          <Link href='/posts/'>
+          <Link href='/posts/' legacyBehavior>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
