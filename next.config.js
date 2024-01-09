@@ -4,7 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: "akamai",
-    path: isProd ? "https://renebitter.github.io/" : "",
+    path: isProd ? "https://diary-of-muaz.vercel.app//" : "",
   },
   basePath: "",
   swcMinify: false, // Disable SWC minification
